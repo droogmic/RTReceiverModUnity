@@ -3,11 +3,11 @@ using System.Collections;
 
 public class PlayerManager : MonoBehaviour {
 
-	private float lastSynchronizationTime = 0f;
-	private float syncDelay = 0f;
-	private float syncTime = 0f;
-	private Vector3 syncStartPosition = Vector3.zero;
-	private Vector3 syncEndPosition = Vector3.zero;
+	//private float lastSynchronizationTime = 0f;
+	//private float syncDelay = 0f;
+	//private float syncTime = 0f;
+	//private Vector3 syncStartPosition = Vector3.zero;
+	//private Vector3 syncEndPosition = Vector3.zero;
 
 	[HideInInspector]
 	public Vector3 colour;
@@ -19,8 +19,8 @@ public class PlayerManager : MonoBehaviour {
 	
 	// Use this for initialization
 	void Start () {
-		syncStartPosition = transform.position;
-		syncEndPosition = transform.position;
+		//syncStartPosition = transform.position;
+		//syncEndPosition = transform.position;
 	}
 	
 	// Update is called once per frame
