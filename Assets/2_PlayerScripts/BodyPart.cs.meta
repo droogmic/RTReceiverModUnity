@@ -1,0 +1,9 @@
+fileFormatVersion: 2
+guid: f6d449ac6c7532a40ac93fb25195cc6c
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences:
+  - playercameraPrefab: {fileID: 100000, guid: 296f842f70b9c8248887146f0578468d, type: 2}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 

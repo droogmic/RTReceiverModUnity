@@ -1,0 +1,10 @@
+fileFormatVersion: 2
+guid: c5083be6d3b8d094f9c8c479851dffba
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences:
+  - playerPrefab: {fileID: 100000, guid: 6075ddf51939f8548a710c6db27cf6aa, type: 2}
+  - ballPrefab: {fileID: 100000, guid: 75be39e534a645b48819f5d1eeb6ebe9, type: 2}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
