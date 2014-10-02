@@ -38,8 +38,9 @@ public class MouseLook : MonoBehaviour {
 				CameraTransform();
 			}
 		if (name == "Head")
-			if (GetComponentInParent<NetworkView>().isMine == true)
+			if (transform.parent.GetComponent<NetworkView>().isMine == true)
 			{
+				DebugConsole.Log ("Tilting Head");
 				CameraTransform();
 			}
 	}
