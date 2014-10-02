@@ -10,7 +10,7 @@ public class BodyPart: MonoBehaviour {
 	
 		if (name == "Head")
 		{
-			if (transform.parent.GetComponent<NetworkView>().isMine == true)
+			if (GetComponentInParent<NetworkView>().isMine == true)
 			{
 				GameObject cameraObj = (GameObject)Instantiate(playercameraPrefab, (transform.position + new Vector3(0f, 0.214167f, 0f)), transform.rotation);
 				cameraObj.transform.parent = transform;
@@ -22,7 +22,7 @@ public class BodyPart: MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 	
-		Vector3 incolor = transform.parent.GetComponent<PlayerManager>().colour;
+		Vector3 incolor = GetComponentInParent<PlayerManager>().colour;
 		renderer.material.color = new Color(incolor.x, incolor.y, incolor.z, 1f);
 
 	}
