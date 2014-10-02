@@ -11,6 +11,7 @@ public class NetworkManager : MonoBehaviour {
 	private const bool useNAT = false;
 	//private const bool useNAT = !Network.HavePublicAddress();
 
+	private bool isLocal = false;
 	private bool DirConn = true;
 	private bool useMaster = false;
 	private string ipAdd = "127.0.0.1";
@@ -34,21 +35,22 @@ public class NetworkManager : MonoBehaviour {
 
 	void OnGUI()
 	{
-		if (!Network.isClient && !Network.isServer)
+		if ((!Network.isClient && !Network.isServer)||!isLocal)
 		{
 			
 			useMaster = GUI.Toggle(new Rect(100, 40, 250, 20), useMaster, "Use Master Server?");
 			
-			if (GUI.Button(new Rect(100, 100, 250, 100), "Start Server"))
+			if (GUI.Button(new Rect(100, 100, 250, 80), "Start Server"))
 				StartServer();
 			
-			if (GUI.Button(new Rect(100, 250, 250, 100), "Refresh Hosts"))
+			if (GUI.Button(new Rect(100, 200, 250, 80), "Refresh Hosts"))
 				RefreshHostList();
 			
-			if (GUI.Button(new Rect(100, 400, 250, 100), "Direct Connect"))
-			{
+			if (GUI.Button(new Rect(100, 300, 250, 80), "Direct Connect"))
 				DirectConnect();
-			}
+
+			if (GUI.Button(new Rect(100, 400, 250, 80), "Single Player"))
+				SinglePlayer();
 			
 			if (DirConn == true)
 				ipAdd = GUI.TextField(new Rect (100, 550, 250, 100), ipAdd, 30);
@@ -147,6 +149,16 @@ public class NetworkManager : MonoBehaviour {
 	private void SpawnCamera()
 	{
 		Instantiate(cameraPrefab, new Vector3(0f, 40f, 0f), Quaternion.identity);
+	}
+
+	private void SinglePlayer()
+	{
+		SpawnLocalPlayer();
+	}
+
+	private void SpawnLocalPlayer()
+	{
+		Instantiate(playerPrefab, new Vector3(Random.Range(-5f, 5f), 30f, Random.Range(-5f, 5f)), Quaternion.identity);
 	}
 
 }
