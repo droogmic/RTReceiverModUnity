@@ -15,6 +15,11 @@ public class PlayerManager : MonoBehaviour {
 	void Awake()
 	{
 		name = "playerObj";
+		if (!networkView.isMine) 
+		{
+			GetComponent<CharacterMotorC>().enabled = false;
+			GetComponent<FPSInputControllerC>().enabled = false;
+		}
 	}
 	
 	// Use this for initialization
@@ -29,6 +34,7 @@ public class PlayerManager : MonoBehaviour {
 		if (networkView.isMine)
 		{
 			InputColorChange();
+			ToggleTorch();
 		}
 		else
 		{
@@ -36,7 +42,11 @@ public class PlayerManager : MonoBehaviour {
 		}
 	}
 	
-	
+	private void ToggleTorch()
+	{
+		if (Input.GetKeyDown (KeyCode.F)) 
+			GetComponentInParent<FlashlightScriptC> ().Toggle ();
+	}
 	private void InputColorChange()
 	{
 		if (Input.GetKeyDown(KeyCode.R))
